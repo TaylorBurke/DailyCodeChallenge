@@ -19,13 +19,13 @@ const countFish = (fish) => {
   }, {});
 };
 
-const canSustainCatch = (fish, catchLevels, minumumViablePopulation) => {
+const canSustainCatch = (fish, catchLevels, minimumViablePopulation) => {
   const fishCounts = countFish(fish);
   return Object.keys(fishCounts).every((fish) => {
     return (
-      fishCounts[fish] - catchLevels[fish] >= minumumViablePopulation[fish]
+      fishCounts[fish] - catchLevels[fish] >= minimumViablePopulation[fish]
     );
   });
 };
 
-console.log(canSustainCatch(fish, catchLevels, minumumViablePopulation));
+console.log(canSustainCatch(fish, catchLevels, minimumViablePopulation));
