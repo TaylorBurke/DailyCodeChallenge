@@ -14,3 +14,13 @@ const compressString = (string) => {
 };
 
 console.log(compressString("aabbbaa"));
+
+todoRouter.get("/user", (req, res, next) => {
+  Todo.find({ user: req.auth._id }, (err, todos) => {
+    if (err) {
+      res.status(500);
+      return next(err);
+    }
+    return res.status(200).send(todos);
+  });
+});
