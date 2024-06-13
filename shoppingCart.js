@@ -3,19 +3,16 @@ const shoppingCart = [
     itemName: "Wireless Mouse",
     quantity: 1,
     price: 25.99,
-    size: "small",
   },
   {
     itemName: "Bluetooth Headphones",
     quantity: 2,
     price: 59.99,
-    size: "medium",
   },
   {
     itemName: "USB-C Charging Cable",
     quantity: 3,
     price: 12.99,
-    size: "small",
   },
 ];
 
@@ -47,4 +44,13 @@ function addTax(cart) {
   return getTotalPrice(cart) * 1.08;
 }
 
-// calculate shipping. Every small
+// write a function that takes in a shopping cart and returns the total price of the items in the cart with tax and discount applied
+// it should also calculate shipping, which is $5.99 for orders under $50 and free for orders $50 and over (before tax)
+const calculateTotal = (cart) => {
+  const totalPrice = applyDiscount(cart);
+  const totalPriceWithTax = addTax(cart);
+  if (totalPrice < 50) {
+    return totalPriceWithTax + 5.99;
+  }
+  return totalPriceWithTax;
+};
