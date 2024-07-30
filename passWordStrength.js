@@ -20,8 +20,8 @@ function analyzePasswordStrength(password) {
     password
   );
 
-  // Count how many criteria are met
-  const criteriaCount = Object.values(result).filter(Boolean).length - 1; // Subtract 1 to exclude 'strength'
+  // Count how many criteria are met (strength is still an empty string and will be false)
+  const criteriaCount = Object.values(result).filter(Boolean).length;
 
   // Determine strength based on criteria count
   if (criteriaCount <= 2) {
